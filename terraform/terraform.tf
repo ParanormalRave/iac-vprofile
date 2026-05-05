@@ -9,7 +9,7 @@ terraform {
       version = "3.5.1"
     }
   }
- 
+
   backend "s3" {
     bucket = "vprofile-tfstate-paranormalrave-2026"
     key    = "terraform.tfstate"
@@ -18,7 +18,7 @@ terraform {
 
   required_version = ">= 1.6.0"
 }
- 
+
 provider "aws" {
   region = var.region
 }

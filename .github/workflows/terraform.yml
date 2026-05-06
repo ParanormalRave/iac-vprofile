@@ -63,6 +63,11 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
+      - name: Debug
+        run: |
+          echo "REF: ${{ github.ref }}"
+          echo "EVENT: ${{ github.event_name }}"
+
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main'

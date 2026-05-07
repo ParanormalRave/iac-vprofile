@@ -12,3 +12,4 @@ output "ecr_repository_url" {
   value       = aws_ecr_repository.vprofileapp.repository_url
 }
 # retrigger
+# recreate cluster

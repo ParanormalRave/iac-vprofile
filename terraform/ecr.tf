@@ -13,3 +13,4 @@ output "ecr_repository_url" {
 }
 # retrigger
 # recreate cluster
+# cluster active

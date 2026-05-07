@@ -30,6 +30,13 @@ jobs:
  
       - name: Terraform init
         run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
+        
+      - name: Delete NGINX Load Balancer
+        run: |
+          aws eks update-kubeconfig --region $AWS_REGION --name vprofile-eks-mg93vagm
+          kubectl delete svc -n ingress-nginx ingress-nginx-controller --ignore-not-found
+          echo "Waiting for load balancer to be removed..."
+          sleep 60  
  
       - name: Terraform destroy
         run: terraform destroy -auto-approve -input=false
